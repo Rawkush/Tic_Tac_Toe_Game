@@ -7,6 +7,10 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    int activePlay=0;  //0= yellow, 1= red
+
+    int [] gameState={2,2,2,2,2,2,2,2,2}; //2 means nothing int the slot
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         counter.setTranslationY(1000f);
 
-        counter.setImageResource(R.drawable.yellow);
-
+        if(activePlay==0) {
+            counter.setImageResource(R.drawable.yellow);
+            activePlay=1;
+        }
+        else {
+            counter.setImageResource(R.drawable.yellow);
+        activePlay=0;
+        }
         counter.animate().translationY(1000f).rotation(360).setDuration(300);
 
 
