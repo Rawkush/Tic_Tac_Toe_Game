@@ -89,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     TextView messsage = (TextView) findViewById(R.id.winMessage);
-                    messsage.setText(winner + "has won  ");
+                    messsage.setText(winner + " has won  ");
 
                     gameIsActive = false;
                     LinearLayout linearLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
 
                     linearLayout.setVisibility(View.VISIBLE);
-
+                    linearLayout.setAlpha(1);
 
                 }
 
