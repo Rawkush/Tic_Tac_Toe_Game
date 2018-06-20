@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     int [] gameState={2,2,2,2,2,2,2,2,2}; //2 means nothing int the slot
     int [][]winningPositions={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}}; // winnig poistions
 
+    boolean gameIsActive=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         int tappedCounter= Integer.parseInt(counter.getTag().toString());
 
-        if (gameState[tappedCounter]==2) {
+        if (gameState[tappedCounter]==2&&gameIsActive==true) {
 
             gameState[tappedCounter] = activePlay;        // alloting the clicked slot the to appropriate user
 
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView messsage=(TextView) findViewById(R.id.winMessage);
                 messsage.setText(winner+ "has won  ");
 
-
+                gameIsActive=false;
                 LinearLayout linearLayout= (LinearLayout) findViewById(R.id.playAgainLayout);
 
                 linearLayout.setVisibility(View.VISIBLE);
