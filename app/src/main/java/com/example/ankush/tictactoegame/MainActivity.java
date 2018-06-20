@@ -3,7 +3,10 @@ package com.example.ankush.tictactoegame;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +19,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+
+    public void playAgain(View view){
+
+
+        LinearLayout linearLayout= (LinearLayout) findViewById(R.id.playAgainLayout);
+
+        linearLayout.setVisibility(View.INVISIBLE);
+        activePlay=0;
+        int [] DefaultgameState={2,2,2,2,2,2,2,2,2};
+        gameState=DefaultgameState; // reseting tne game state again to 0
+
+
+        GridLayout gridLayout = (GridLayout) findViewById(R.id.gridlayout);
+
+        for(int i=0; i< gridLayout.getChildCount();i++){
+
+            ImageView imageView =(ImageView) gridLayout.getChildAt(i);
+            imageView.setImageResource(0);
+        }
+
+
     }
 
 
@@ -53,7 +79,20 @@ public class MainActivity extends AppCompatActivity {
                     gameState[WinningPositions[2]]==gameState[WinningPositions[0]]&&
                     gameState[WinningPositions[0]]!=2){ // this one is because blanks are filled with 2
 
+                    // someone has one
+                String winner="Red";
 
+                if(gameState[WinningPositions[0]]==0){
+                    winner="yellow";
+                }
+
+                TextView messsage=(TextView) findViewById(R.id.winMessage);
+                messsage.setText(winner+ "has won  ");
+
+
+                LinearLayout linearLayout= (LinearLayout) findViewById(R.id.playAgainLayout);
+
+                linearLayout.setVisibility(View.VISIBLE);
 
 
 
