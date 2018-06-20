@@ -49,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
         for(int []WinningPositions: winningPositions){   // taking the wiining poisiton one ata time e.g {0,1,2}
 
-            if(gameState[WinningPositions[0]]==gameState[WinningPositions[1]]&& gameState[WinningPositions[2]]==gameState[WinningPositions[0]]){
+            if(gameState[WinningPositions[0]]==gameState[WinningPositions[1]]&&
+                    gameState[WinningPositions[2]]==gameState[WinningPositions[0]]&&
+                    gameState[WinningPositions[0]]!=2){ // this one is because blanks are filled with 2
+
+
+
 
 
             }
