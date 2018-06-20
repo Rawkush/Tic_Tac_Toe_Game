@@ -52,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView counter= (ImageView) view;
 
-        counter.setTranslationY(-1000f);
-
 
 
         int tappedCounter= Integer.parseInt(counter.getTag().toString());
 
         if (gameState[tappedCounter]==2&&gameIsActive==true) {
 
+
+            counter.setTranslationY(-1000f);
+
             gameState[tappedCounter] = activePlay;        // alloting the clicked slot the to appropriate user
 
             if (activePlay == 0) {
                 counter.setImageResource(R.drawable.yellow);
-                System.out.print("sjdhkjshfkjdjshksjhfkjhskdjhfksuhbfjehiksduhf,dkjdls");
                 activePlay = 1;
             } else {
                 counter.setImageResource(R.drawable.red);
@@ -72,39 +72,35 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        }
+            counter.animate().translationYBy(1000f).rotation(360).setDuration(300);
 
-        counter.animate().translationY(1000f).rotation(360).setDuration(300);
+            for (int[] WinningPositions : winningPositions) {   // taking the wiining poisiton one ata time e.g {0,1,2}
 
-        for(int[] WinningPositions: winningPositions){   // taking the wiining poisiton one ata time e.g {0,1,2}
 
-            System.out.print(WinningPositions[0]);
-
-            if(gameState[WinningPositions[0]]==gameState[WinningPositions[1]]&&
-                    gameState[WinningPositions[2]]==gameState[WinningPositions[0]]&&
-                    gameState[WinningPositions[0]]!=2){ // this one is because blanks are filled with 2
+                if (gameState[WinningPositions[0]] == gameState[WinningPositions[1]] &&
+                        gameState[WinningPositions[2]] == gameState[WinningPositions[0]] &&
+                        gameState[WinningPositions[0]] != 2) { // this one is because blanks are filled with 2
 
                     // someone has one
-                String winner="Red";
+                    String winner = "Red";
 
-                if(gameState[WinningPositions[0]]==0){
-                    winner="yellow";
+                    if (gameState[WinningPositions[0]] == 0) {
+                        winner = "yellow";
+                    }
+
+                    TextView messsage = (TextView) findViewById(R.id.winMessage);
+                    messsage.setText(winner + "has won  ");
+
+                    gameIsActive = false;
+                    LinearLayout linearLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
+
+                    linearLayout.setVisibility(View.VISIBLE);
+
+
                 }
 
-                TextView messsage=(TextView) findViewById(R.id.winMessage);
-                messsage.setText(winner+ "has won  ");
-
-                gameIsActive=false;
-                LinearLayout linearLayout= (LinearLayout) findViewById(R.id.playAgainLayout);
-
-                linearLayout.setVisibility(View.VISIBLE);
-
-
-
             }
-
         }
-
     }
 
 
