@@ -97,6 +97,29 @@ public class MainActivity extends AppCompatActivity {
                     linearLayout.setVisibility(View.VISIBLE);
                     linearLayout.setAlpha(1);
 
+                }else
+                {
+                    boolean gameIsOver= true;
+
+                    for(int counterState: gameState)
+                        if(counterState==2)
+                            gameIsOver=false;
+
+                    if(gameIsOver){
+
+
+                        TextView messsage = (TextView) findViewById(R.id.winMessage);
+                        messsage.setText("It's a TIE");
+
+                        gameIsActive = false;
+                        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
+
+                        linearLayout.setVisibility(View.VISIBLE);
+                        linearLayout.setAlpha(1);
+                    }
+
+
+
                 }
 
             }
