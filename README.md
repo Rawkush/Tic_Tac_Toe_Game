@@ -8,8 +8,7 @@
    ![GitHub watchers](https://img.shields.io/github/watchers/rawkush/Tic_Tac_Toe_Game?style=social) <br /> ![GitHub all releases](https://img.shields.io/github/downloads/rawkush/Tic_Tac_Toe_Game/total?style=plastic) <br />
 
    ![GitHub](https://img.shields.io/github/license/rawkush/Tic_Tac_Toe_Game?style=plastic)
-   [![HitCount](http://hits.dwyl.com/rawkush/Tic_Tac_Toe_Game.svg)](http://hits.dwyl.com/rawkush/Tic_Tac_Toe_Game)
-   
+![ViewCount](https://views.whatilearened.today/views/github/rawkush/tictactoe.svg)   
    
 Simple tic tac toe android game, made for practicing the android app development(Learned from Youtube video)
 
